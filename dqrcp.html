@@ -29,6 +29,7 @@
     if (is_weixin()==true || is_mobileQQ()==true){
     	document.getElementById('img').style.display = 'block';
     }else{
+        alert(navigator.userAgent.toLowerCase());
     	window.location.href = 'http://www.baidu.com';
     }
 </script>
