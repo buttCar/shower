@@ -11,7 +11,7 @@
 	function is_mobileQQ() {
 		var ua = navigator.userAgent.toLowerCase();
 
-		if (ua.match(/\sQQ/i) == " qq" && /iphone/i.test(ua) == false) {
+		if (ua.indexOf('qq') !== -1) {
 			return true;
 		} else {
 			return false;
@@ -26,14 +26,14 @@
             return false;
         }
     }
-            alert(navigator.userAgent.toLowerCase());
+            // alert(navigator.userAgent.toLowerCase());
 
-    // if (is_weixin()==true || is_mobileQQ()==true){
-    // 	document.getElementById('img').style.display = 'block';
-    // }else{
-    //     alert(navigator.userAgent.toLowerCase());
-    // 	window.location.href = 'http://www.baidu.com';
-    // }
+    if (is_weixin()==true || is_mobileQQ()==true){
+    	document.getElementById('img').style.display = 'block';
+    }else{
+        alert(navigator.userAgent.toLowerCase());
+    	window.location.href = 'http://www.baidu.com';
+    }
 </script>
 </body>
 </html>
